@@ -20,14 +20,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(require("react"));
 var Login = /** @class */ (function (_super) {
     __extends(Login, _super);
-    function Login() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Login(props, context) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            username: "sana",
+            password: "saad"
+        };
+        return _this;
     }
+    Login.prototype.handleClick = function (e) {
+        alert(this.state.username);
+    };
     Login.prototype.render = function () {
         return (React.createElement("div", null,
-            React.createElement("input", { type: "text", id: "name" }),
-            React.createElement("input", { type: "text", id: "password" }),
-            React.createElement("input", { type: "button", value: "Login" })));
+            "Hello ",
+            this.state.name,
+            "!",
+            React.createElement("b", null, "Enter Name: "),
+            React.createElement("br", null),
+            React.createElement("input", { type: "text", id: "name", value: this.state.username }),
+            React.createElement("br", null),
+            React.createElement("b", null, "Enter Password: "),
+            React.createElement("br", null),
+            React.createElement("input", { type: "password", id: "password", value: this.state.password }),
+            React.createElement("br", null),
+            React.createElement("input", { type: "button", value: "Login", onClick: this.handleClick.bind(this) })));
     };
     return Login;
 }(React.Component));

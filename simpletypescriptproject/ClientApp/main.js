@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(require("react"));
 var ReactDOM = __importStar(require("react-dom"));
-var mylogin_1 = __importDefault(require("./mylogin"));
+//import Login from "./mylogin"
+var display_1 = __importDefault(require("./display"));
 ReactDOM.render(React.createElement("div", null,
-    React.createElement("h1", null, "Hello, Welcome to the first page"),
-    React.createElement(mylogin_1.default, null)), document.getElementById("root"));
+    React.createElement(display_1.default, null)), document.getElementById("root"));
