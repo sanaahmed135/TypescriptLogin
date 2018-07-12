@@ -2,29 +2,40 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace simpletypescriptproject.Controllers
 {
     [Route("api/[controller]")]
-    public class UtilityController : ControllerBase
+    public class AccountController : ControllerBase
     {
-        public UtilityController()
+
+        public AccountController()
         {
         }
 
-        [HttpGet()]
-        public string GetDisplayContent(string name = null) {
-            // sql
-            return $"Hallo {name} ";
+        [Route("GetDisplayContent/{name}")]
+        [HttpGet]
+        public string GetDisplayContent(string name)
+        {
+            return $"Hello  {name} ";
         }
 
-        [HttpPost()]
-        public void ExecuteAction([FromForm]string name = null)
+        [Route("SignIn")]
+        [HttpPost]
+        public User SignIn([FromBody]User account)
         {
-            // sql
-            //return $"Hallo {name}";
+            //var output = // db callfdfdsöfsd
+            return new User { Username = "sana", Password = "saad" };
         }
-        //
+    }
+
+    public class User
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
     }
 }
